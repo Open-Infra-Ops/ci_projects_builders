@@ -10,14 +10,16 @@ openEuler企业下所有制品仓和代码仓的门禁都托管在 Jenkins 上�
 现在，您可以通过提交一条 Pull Request 来实现在 Jenkins 自动创建 openEuler 代码仓的门禁工程。Pull Request 提交的仓库为 https://gitee.com/openeuler/openeuler-jenkins ，仓库内的路径为 doc/openeuler-ci/{repo}.yaml ，即您需要在 doc/openeuler-ci 目录下新建一个与仓库名同名的yaml文件，以 openeuler/website 为例，具体的内容如下
 
 ```
-name: website
-level: 1
-email:
-  - email1
-  - email2
-  - ...
+repo_name: website
+container_level: 1
+init_shell: "echo hello\necho $?"
+users:
+  - login_name: xxx
+    name: xyz
+    email: xxx@yyy.com
+    gitee_id: xxx
 ```
-配置文件的 name 为需要配置项目的仓库名；level 为容器内存、磁盘的组合等级；email是一个数组，每项为一个需配置 authing 授权的 Gitee 绑定邮箱。
+配置文件的 repo_name 为需要配置项目的仓库名；container_level 为容器内存、磁盘的组合等级； init_shell 是 x86-64 和 aarch64 工程users 是一个数组，每项为一个用户的配置。login_name 是 Jenkins 的登录账号，name 是账号在 Jenkins 的名称，email 为 authing 授权的 Gitee 绑定邮箱。
 当 Pull Request 合入后，Gitee Webhook 会触发在 Jenkins 自动创建对应 openEuler 代码仓的工程。
 
 ### 门禁流程
