@@ -156,9 +156,10 @@ def run(owner, repo, number):
         logger.info('Config container level')
         with open('utils/container_level_mapping.yaml', 'r') as f:
             container_level_mapping = yaml.load(f.read(), Loader=yaml.Loader)
-        node = container_level_mapping.get(container_level)
-        config_image_level(server, node, x86_project)
-        config_image_level(server, node, aarch64_project)
+        x86_node = container_level_mapping.get('x86').get(container_level)
+        aarch64_node = container_level_mapping.get('aarch64').get(container_level)
+        config_image_level(server, x86_node, x86_project)
+        config_image_level(server, aarch64_node, aarch64_project)
         # 修改x86-64和aarch64的初始脚本
         logger.info('Config init shell')
         config_init_shell((server, init_shell, x86_project))
