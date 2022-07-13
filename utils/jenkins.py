@@ -1,3 +1,4 @@
+import os
 from jenkinsapi import jenkins as jenkins_api
 
 
@@ -13,6 +14,7 @@ class JenkinsLib(jenkins_api.Jenkins):
             "password2": password,
             "fullname": fullname,
             "email": email}
+        baseurl = os.getenv('BASEURL', '')
         url = "%s/securityRealm/createAccountByAdmin" % self.baseurl
         valid = self.requester.VALID_STATUS_CODES + [302, ]
         resp = self.requester.post_and_confirm_status(url, data=body,
