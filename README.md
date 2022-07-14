@@ -11,7 +11,7 @@ openEuler企业下所有制品仓和代码仓的门禁都托管在 Jenkins 上�
 
 ```
 repo_name: website
-container_level: 1
+container_level: l1
 init_shell: "echo hello\necho $?"
 users:
   - login_name: xxx
@@ -19,7 +19,7 @@ users:
     email: xxx@yyy.com
     gitee_id: xxx
 ```
-配置文件的 repo_name 为需要配置项目的仓库名；container_level 为容器内存、磁盘的组合等级； init_shell 是 x86-64 和 aarch64 工程users 是一个数组，每项为一个用户的配置。login_name 是 Jenkins 的登录账号，name 是账号在 Jenkins 的名称，email 为 authing 授权的 Gitee 绑定邮箱。
+配置文件的 repo_name 为需要配置项目的仓库名；container_level 为容器内存、磁盘的组合等级，l1为2核4G~4核8G，l2为4核6G以上； init_shell 是 x86-64 和 aarch64 工程users 是一个数组，每项为一个用户的配置。login_name 是 Jenkins 的登录账号，name 是账号在 Jenkins 的名称，email 为 authing 授权的 Gitee 绑定邮箱。
 当 Pull Request 合入后，Gitee Webhook 会触发在 Jenkins 自动创建对应 openEuler 代码仓的工程。
 
 ### 门禁流程
