@@ -7,7 +7,7 @@ openEuler企业下所有制品仓和代码仓的门禁都托管在 Jenkins 上�
 当然，如果您需要查看或修改对应项目的配置，还需要一个 Jenkins 账号。账号的注册和项目的权限配置可联系作者。
 
 ### 提交Pull Request
-现在，您可以通过提交一条 Pull Request 来实现在 Jenkins 自动创建 openEuler 代码仓的门禁工程。Pull Request 提交的仓库为 https://gitee.com/openeuler/openeuler-jenkins ，仓库内的路径为 doc/openeuler-ci/{repo}.yaml ，即您需要在 doc/openeuler-ci 目录下新建一个与仓库名同名的yaml文件，以 openeuler/website 为例，具体的内容如下
+现在，您可以通过提交一条 Pull Request 来实现在 Jenkins 自动创建 openEuler 代码仓的门禁工程。Pull Request 提交的仓库为 https://gitee.com/openeuler/openeuler-jenkins ，仓库内的路径为 openeuler-ci/{repo}.yaml ，即您需要在 openeuler-ci 目录下新建一个与仓库名同名的yaml文件，以 openeuler/website 为例，具体的内容如下
 
 ```
 repo_name: website

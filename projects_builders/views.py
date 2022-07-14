@@ -94,7 +94,7 @@ def run(owner, repo, number):
         users = ci_config.get('users')
         parameters = {
             'action': 'create',
-            'template': 'website',
+            'template': 'openeuler-jenkins',
             'jobs': repo_name,
             'repo_server': 'repo-service.dailybuild'
         }
