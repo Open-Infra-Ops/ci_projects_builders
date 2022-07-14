@@ -63,7 +63,7 @@ def create_authing_user(token, userId, email_address):
         return member_id
     elif r.json()['code'] == 2026:
         member_id = search_member(token, userId, email_address)
-        logger.info('The user still exists and its member_id is {}.'.format(email_address, member_id))
+        logger.info('The user {} still exists and its member_id is {}.'.format(email_address, member_id))
         return member_id
     else:
         logger.error('Fail to create member, the status code is {}.'.format(r.json()['code']))
