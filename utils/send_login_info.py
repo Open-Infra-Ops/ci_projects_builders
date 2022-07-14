@@ -20,10 +20,6 @@ def msg_body(account, password):
 
 
 def sendmail(account, password, receiver):
-    smtp_server_host = 'smtp.gmail.com'
-    smtp_server_port = 587
-    smtp_server_user = 'nicliuqi@gmail.com'
-    smtp_server_pass = 'lcycyimqcvbtyajd'
     smtp_server_host = os.getenv('SMTP_SERVER_HOST', '')
     smtp_server_port = os.getenv('SMTP_SERVER_POST', '')
     smtp_server_user = os.getenv('SMTP_SERVER_USER', '')
