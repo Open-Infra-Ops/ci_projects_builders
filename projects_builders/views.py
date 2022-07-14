@@ -69,8 +69,7 @@ def run(owner, repo, number):
         file_path = os.path.join(repo, diff_file)
         if len(diff_file.split('/')) == 2 and \
                 diff_file.split('/')[0] == 'openeuler-ci' and \
-                diff_file.split('/')[-1].endswith('.yaml') and \
-                os.path.exists(file_path):
+                diff_file.split('/')[-1].endswith('.yaml'):
             waiting_repos.append(file_path)
     if not waiting_repos:
         logger.info('Notice there is no repo needs to build jenkins projects, exit...')
