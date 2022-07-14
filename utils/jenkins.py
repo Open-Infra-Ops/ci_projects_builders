@@ -73,7 +73,7 @@ def config_image_level(server, node, project):
     arch = project.split('/')[2]
     conf = server.get_job_config(project)
     newconf = None
-    if arch == 'x86-84':
+    if arch == 'x86-64':
         newconf = conf.replace('<assignedNode>k8s-x86-openeuler-20.03-lts-sp1</assignedNode>\n',
                                '<assignedNode>{}</assignedNode>\n'.format(node))
     elif arch == 'aarch64':
