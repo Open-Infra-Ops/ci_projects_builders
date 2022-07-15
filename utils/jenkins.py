@@ -84,5 +84,8 @@ def config_image_level(server, node, project):
 
 def config_init_shell(server, init_shell, project):
     conf = server.get_job_config(project)
-    newconf = conf.repalce('<command></command>\n', '<command>{}</command>\n'.format(init_shell))
+    if '<command/>\n' in conf:
+        newconf = conf.replace('<command/>\n', '<command>{}</command>\n'.format(init_shell))
+    else:
+        newconf = conf.replace('<command></command>\n', '<command>{}</command>\n'.format(init_shell))
     server.reconfig_job(project, newconf)

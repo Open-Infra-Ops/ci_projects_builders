@@ -161,8 +161,8 @@ def run(owner, repo, number):
         config_image_level(server, aarch64_node, aarch64_project)
         # 修改x86-64和aarch64的初始脚本
         logger.info('Config init shell')
-        config_init_shell((server, init_shell, x86_project))
-        config_init_shell((server, init_shell, aarch64_project))
+        config_init_shell(server, init_shell, x86_project)
+        config_init_shell(server, init_shell, aarch64_project)
     logger.info('Finish dealing with the Merge Hook, waiting next Merge Hook.')
 
 
@@ -180,5 +180,5 @@ class HookView(GenericAPIView):
         number = pr_url.split('/')[-1]
         p1 = Process(target=run, args=(owner, repo, number))
         p1.start()
-        return JsonResponse({'code': 200,  'msg': 'OK'})
+        return JsonResponse({'code': 200, 'msg': 'OK'})
 
